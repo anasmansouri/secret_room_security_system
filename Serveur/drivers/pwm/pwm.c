@@ -36,7 +36,7 @@ int set_pwm_polarity(pwm_channel *pwm, char polarity[10])
     sprintf(pwm_polarity_file_path, "/sys/class/pwm/pwmchip0/pwm%s/polarity", pwm->channel_id);
 
     
-    if ((p_pwm_polarity = fopen(pwm_polarity_file_path, "w+")) == NULL)
+    if ((p_pwm_polarity = fopen(pwm_polarity_file_path, "w")) == NULL)
     {
         printf("Cannot open polarity file.\n");
         exit(1);
