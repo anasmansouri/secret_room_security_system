@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include<stdbool.h>
-#include "pwd.h"
+#include "pwm.h"
 
 /* ********************************** */
 /* LOAD_PWM_CHANNEL                     */
