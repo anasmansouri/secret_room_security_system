@@ -66,7 +66,7 @@ int set_pwm_period(pwm_channel *pwm, long unsigned int period)
     }
     rewind(p_pwm_period);
     char period_string [20];
-    fprintf(period_string, "%lu", period); 
+    sprintf(period_string, "%lu", period); 
     fputs(period_string,p_pwm_period);
     fclose(p_pwm_period);
     return 0;
@@ -89,7 +89,7 @@ int set_pwm_duty_cycle(pwm_channel *pwm, long unsigned int duty_cycle)
     }
     rewind(p_pwm_duty_cycle);
     char duty_cycle_string [20];
-    fprintf(duty_cycle_string, "%lu", duty_cycle);
+    sprintf(duty_cycle_string, "%lu", duty_cycle);
     fputs(duty_cycle_string,p_pwm_duty_cycle);
     fclose(p_pwm_duty_cycle);
     return 0;
