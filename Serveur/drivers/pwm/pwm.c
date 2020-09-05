@@ -154,7 +154,8 @@ char * get_pwm_polarity(pwm_channel *pwm){
         printf("Cannot open polarity file.\n");
         exit(1);
     }
-    char polarity[10];
+    char *polarity;
+    polarity = (char*)malloc(10 * sizeof(char));
     rewind(p_pwm_polarity);
     fgets(polarity,10,p_pwm_polarity);
     fclose(p_pwm_polarity);
