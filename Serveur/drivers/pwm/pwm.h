@@ -14,7 +14,7 @@ typedef struct pwm_channel pwm_channel;
 
 
 int load_pwm_channel(pwm_channel *pwm, char channel_id[4] );
-int set_pwm_polarity(pwm_channel *pwm, char polarity[10]);
+int set_pwm_polarity(pwm_channel *pwm, char* polarity);
 int set_pwm_period(pwm_channel *pwm, long unsigned int period);
 int set_pwm_duty_cycle(pwm_channel *pwm, long unsigned int duty_cycle);
 int enable_pwm_channel(pwm_channel *pwm);
