@@ -43,7 +43,7 @@ int set_pwm_polarity(pwm_channel *pwm, char polarity[10])
     }
     rewind(p_pwm_polarity);
     // TODO you have to test for errors if the polarity is not normal or inversed
-    fputs(p_pwm_polarity,polarity);
+    fputs(polarity,p_pwm_polarity);
     fclose(p_pwm_polarity);
     return 0;
 }
@@ -67,7 +67,7 @@ int set_pwm_period(pwm_channel *pwm, long unsigned int period)
     rewind(p_pwm_period);
     char period_string [20];
     fprintf(period_string, "%lu", period); 
-    fputs(p_pwm_period,period_string);
+    fputs(period_string,p_pwm_period);
     fclose(p_pwm_period);
     return 0;
 }
@@ -90,7 +90,7 @@ int set_pwm_duty_cycle(pwm_channel *pwm, long unsigned int duty_cycle)
     rewind(p_pwm_duty_cycle);
     char duty_cycle_string [20];
     fprintf(duty_cycle_string, "%lu", duty_cycle);
-    fputs(p_pwm_duty_cycle,duty_cycle_string);
+    fputs(duty_cycle_string,p_pwm_duty_cycle);
     fclose(p_pwm_duty_cycle);
     return 0;
 }
@@ -111,7 +111,7 @@ int enable_pwm_channel(pwm_channel *pwm)
         exit(1);
     }
     rewind(p_pwm_enable);
-    fputs(p_pwm_enable,"1");
+    fputs("1",p_pwm_enable);
     fclose(p_pwm_enable);
     return 0;
 }
@@ -132,7 +132,7 @@ int disable_pwm_channel(pwm_channel *pwm)
         exit(1);
     }
     rewind(p_pwm_enable);
-    fputs(p_pwm_enable,"0");
+    fputs("0",p_pwm_enable);
     fclose(p_pwm_enable);
     return 0;
 }
