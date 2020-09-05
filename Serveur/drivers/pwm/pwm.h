@@ -1,6 +1,8 @@
 #ifndef PWM_H_
 #define PWM_H_
 
+#include<stdbool.h>
+
 struct pwm_channel {
     char channel_id[4];
     char polarity[10];
