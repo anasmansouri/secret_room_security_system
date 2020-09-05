@@ -165,7 +165,7 @@ char * get_pwm_polarity(pwm_channel *pwm){
 /* GET_PWM_PERIOD                         */
 /* Gets the period  of a pwm channel */
 /* ****************************************** */
-char * get_pwm_period(pwm_channel *pwm)
+long unsigned int get_pwm_period(pwm_channel *pwm)
 {
     FILE *p_pwm_period;
     char pwm_period_file_path[38];
