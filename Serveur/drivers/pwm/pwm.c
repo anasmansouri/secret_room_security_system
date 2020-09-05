@@ -20,7 +20,7 @@ int load_pwm_channel(pwm_channel *pwm, char channel_id[4])
     }
     rewind(p_pwm_export);
     strcpy(pwm->channel_id, channel_id);
-    fwrite(&pwm->channel_id, sizeof(char), 1, p_pwm_export);
+    fwrite(pwm->channel_id, sizeof(char), 1, p_pwm_export);
     fclose(p_pwm_export);
     return 0;
 }
