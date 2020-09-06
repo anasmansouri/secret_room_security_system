@@ -52,14 +52,10 @@ int set_pwm_polarity(pwm_channel *pwm, char polarity[10])
 /* Sets the period  of a pwm channel */
 /* ****************************************** */
 int set_pwm_period(pwm_channel *pwm,long unsigned int period){
-
-
-printf("channel id %s",pwm->channel_id);
-FILE* p_fichier;
+FILE* p_period_file;
 char path[38];
 sprintf(path,"/sys/class/pwm/pwmchip0/pwm%s/period",pwm->channel_id);
-// char path[] ="/sys/class/pwm/pwmchip0/pwm0/period";
-if ((p_fichier= fopen(path, "w")) == NULL)
+if ((p_period_file= fopen(path, "w")) == NULL)
     {
         printf("Cannot open file.\n");
         exit(1);
@@ -67,10 +63,9 @@ if ((p_fichier= fopen(path, "w")) == NULL)
 char period_string [20];
 sprintf(period_string,"%lu",period);
 printf("%s",period_string);
-fputs(period_string,p_fichier);
-fclose(p_fichier);
+fputs(period_string,p_period_file);
+fclose(p_period_file);
 return 0;
-
 }
 
 
@@ -84,12 +79,11 @@ int set_pwm_duty_cycle(pwm_channel *pwm, long unsigned int duty_cycle)
     char pwm_duty_cycle_file_path[41];
     sprintf(pwm_duty_cycle_file_path, "/sys/class/pwm/pwmchip0/pwm%s/duty_cycle", pwm->channel_id);
 
-    if ((p_pwm_duty_cycle= fopen(pwm_duty_cycle_file_path, "w+")) == NULL)
+    if ((p_pwm_duty_cycle= fopen(pwm_duty_cycle_file_path, "w")) == NULL)
     {
         printf("Cannot open duty cycle file.\n");
         exit(1);
     }
-    rewind(p_pwm_duty_cycle);
     char duty_cycle_string [20];
     sprintf(duty_cycle_string, "%lu", duty_cycle);
     fputs(duty_cycle_string,p_pwm_duty_cycle);
