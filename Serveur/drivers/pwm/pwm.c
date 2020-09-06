@@ -190,13 +190,13 @@ long unsigned int get_pwm_period(pwm_channel pwm)
 /* GET_PWM_DUTY_CYCLE                         */
 /* Gets the duty cycle  of a pwm channel */
 /* ****************************************** */
-long unsigned int get_pwm_duty_cycle(pwm_channel *pwm)
+long unsigned int get_pwm_duty_cycle(pwm_channel pwm)
 {
     FILE *p_pwm_duty_cycle;
     char pwm_duty_cycle_file_path[41];
-    sprintf(pwm_duty_cycle_file_path, "/sys/class/pwm/pwmchip0/pwm%s/duty_cycle", pwm->channel_id);
+    sprintf(pwm_duty_cycle_file_path, "/sys/class/pwm/pwmchip0/pwm%s/duty_cycle", pwm.channel_id);
 
-    if ((p_pwm_duty_cycle= fopen(pwm_duty_cycle_file_path, "w+")) == NULL)
+    if ((p_pwm_duty_cycle= fopen(pwm_duty_cycle_file_path, "r")) == NULL)
     {
         printf("Cannot open duty cycle file.\n");
         exit(1);
@@ -204,7 +204,7 @@ long unsigned int get_pwm_duty_cycle(pwm_channel *pwm)
 
     rewind(p_pwm_duty_cycle);
     long unsigned int duty_cycle;
-    fread(&duty_cycle,sizeof(duty_cycle),1,p_pwm_duty_cycle);
+    fscanf(p_pwm_duty_cycle,"%lu",&duty_cycle);
     fclose(p_pwm_duty_cycle);
     return duty_cycle;
 }

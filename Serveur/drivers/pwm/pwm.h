@@ -22,5 +22,5 @@ int disable_pwm_channel(pwm_channel *pwm);
 
 char * get_pwm_polarity(pwm_channel pwm);
 long unsigned int get_pwm_period(pwm_channel pwm);
-long unsigned int get_pwm_duty_cycle(pwm_channel *pwm);
+long unsigned int get_pwm_duty_cycle(pwm_channel pwm);
 #endif /*PWM_H_*/
