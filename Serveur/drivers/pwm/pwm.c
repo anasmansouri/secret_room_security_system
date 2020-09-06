@@ -51,25 +51,28 @@ int set_pwm_polarity(pwm_channel *pwm, char polarity[10])
 /* SET_PWM_PERIOD                         */
 /* Sets the period  of a pwm channel */
 /* ****************************************** */
-int set_pwm_period(pwm_channel *pwm, long unsigned int period)
-{
-    FILE *p_pwm_period;
-    char pwm_period_file_path[38];
-    sprintf(pwm_period_file_path, "/sys/class/pwm/pwmchip0/pwm%s/period", pwm->channel_id);
+int set_pwm_period(pwm_channel *pwm,long unsigned int period){
 
-    
-    if ((p_pwm_period= fopen(pwm_period_file_path, "w+")) == NULL)
+
+printf("channel id %s",pwm->channel_id);
+FILE* p_fichier;
+char path[38];
+sprintf(path,"/sys/class/pwm/pwmchip0/pwm%s/period",pwm->channel_id);
+// char path[] ="/sys/class/pwm/pwmchip0/pwm0/period";
+if ((p_fichier= fopen(path, "w")) == NULL)
     {
-        printf("Cannot open period file.\n");
+        printf("Cannot open file.\n");
         exit(1);
     }
-    rewind(p_pwm_period);
-    char period_string [20];
-    sprintf(period_string, "%lu", period); 
-    fputs(period_string,p_pwm_period);
-    fclose(p_pwm_period);
-    return 0;
+char period_string [20];
+sprintf(period_string,"%lu",period);
+printf("%s",period_string);
+fputs(period_string,p_fichier);
+fclose(p_fichier);
+return 0;
+
 }
+
 
 /* ****************************************** */
 /* SET_PWM_DUTY_CYCLE                         */
