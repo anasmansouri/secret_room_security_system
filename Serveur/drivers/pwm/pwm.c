@@ -180,7 +180,7 @@ long unsigned int get_pwm_period(pwm_channel pwm)
     }
     rewind(p_pwm_period);
     long unsigned int period;
-    fread(&period,sizeof(period),1,p_pwm_period);
+    fscanf(p_pwm_period,"%lu",&period);
     fclose(p_pwm_period);
     return period;
 }
