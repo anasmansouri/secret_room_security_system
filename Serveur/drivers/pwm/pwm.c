@@ -39,7 +39,6 @@ int set_pwm_polarity(pwm_channel *pwm, char polarity[10])
         printf("Cannot open polarity file.\n");
         exit(1);
     }
-    rewind(p_pwm_polarity);
     // TODO you have to test for errors if the polarity is not normal or inversed
     fputs(polarity,p_pwm_polarity);
     strcpy(pwm->polarity, polarity);
