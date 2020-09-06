@@ -10,4 +10,6 @@ set_pwm_duty_cycle(&pwm, 70000);
 set_pwm_polarity(&pwm, "inversed");
 enable_pwm_channel(&pwm);
 
+printf("\npolarity :%s",get_pwm_polarity(pwm));
+
 }

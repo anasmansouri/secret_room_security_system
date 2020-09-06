@@ -45,7 +45,7 @@ int set_pwm_polarity(pwm_channel *pwm, char polarity[10])
         fclose(p_pwm_polarity);
         return 0;
     }else{
-        printf("the polarity should be normal or inversed");
+        printf("the value of polarity can be only normal or inversed");
         exit(1);
     }
     
@@ -144,12 +144,12 @@ int disable_pwm_channel(pwm_channel *pwm)
 /* GET_PWM_POLARITY                              */
 /* Gets polarity of a pwm channel                  */
 /* ****************************************** */
-char * get_pwm_polarity(pwm_channel *pwm){
+char * get_pwm_polarity(pwm_channel pwm){
     FILE *p_pwm_polarity;
     char pwm_polarity_file_path[40];
-    sprintf(pwm_polarity_file_path, "/sys/class/pwm/pwmchip0/pwm%s/polarity", pwm->channel_id);
+    sprintf(pwm_polarity_file_path, "/sys/class/pwm/pwmchip0/pwm%s/polarity", pwm.channel_id);
     /* Getting polarity */
-    if ((p_pwm_polarity = fopen(pwm_polarity_file_path, "w+")) == NULL)
+    if ((p_pwm_polarity = fopen(pwm_polarity_file_path, "r")) == NULL)
     {
         printf("Cannot open polarity file.\n");
         exit(1);
