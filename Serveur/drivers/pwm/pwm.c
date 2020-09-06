@@ -166,14 +166,14 @@ char * get_pwm_polarity(pwm_channel pwm){
 /* GET_PWM_PERIOD                         */
 /* Gets the period  of a pwm channel */
 /* ****************************************** */
-long unsigned int get_pwm_period(pwm_channel *pwm)
+long unsigned int get_pwm_period(pwm_channel pwm)
 {
     FILE *p_pwm_period;
     char pwm_period_file_path[38];
-    sprintf(pwm_period_file_path, "/sys/class/pwm/pwmchip0/pwm%s/period", pwm->channel_id);
+    sprintf(pwm_period_file_path, "/sys/class/pwm/pwmchip0/pwm%s/period", pwm.channel_id);
 
     /* Getting period */
-    if ((p_pwm_period= fopen(pwm_period_file_path, "w+")) == NULL)
+    if ((p_pwm_period= fopen(pwm_period_file_path, "r")) == NULL)
     {
         printf("Cannot open period file.\n");
         exit(1);

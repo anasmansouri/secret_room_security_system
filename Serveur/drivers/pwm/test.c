@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include "pwm.h"
-
+#include<stdlib.h>
 
 int main(){
 pwm_channel pwm;
@@ -14,5 +14,7 @@ enable_pwm_channel(&pwm);
 // getting pwm infos
 char * polarity = get_pwm_polarity(pwm);
 printf("\npolarity :%s",polarity);
+long unsigned int period =get_pwm_period(pwm);
+printf("period %lu",period);
 free(polarity);
 }
