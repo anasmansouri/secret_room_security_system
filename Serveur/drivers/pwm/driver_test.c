@@ -15,8 +15,8 @@ enable_pwm_channel(&pwm);
 char * polarity = get_pwm_polarity(pwm);
 printf("\npolarity :%s",polarity);
 long unsigned int period =get_pwm_period(pwm);
-printf("period %lu",period);
+printf("\nperiod %lu",period);
 long unsigned int duty_cycle =  get_pwm_duty_cycle(pwm);
-printf("duty cycle %lu",duty_cycle);
+printf("\nduty cycle %lu",duty_cycle);
 free(polarity);
 }

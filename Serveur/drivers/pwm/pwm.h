@@ -1,3 +1,13 @@
+ /*H**********************************************************************
+* FILENAME :        pwm.h
+*
+* DESCRIPTION :
+*       this a pwm driver of the raspberry pi 3 B+
+*
+* AUTHOR :    Mansouri Anas        START DATE :    2 Sep 2020
+*
+*H*/
+
 #ifndef PWM_H_
 #define PWM_H_
 
