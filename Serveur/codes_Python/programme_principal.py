@@ -1,11 +1,12 @@
-import subprocess
 import os
 import sys
+import time
 
 sys.path.append("../mybiblio")
-from mybiblio import write_value_in_file
+from mybiblio import write_value_in_file, read_the_content_of_file
 
-# write_value_in_file("./file", "adf")
+
+#
 
 
 def function():
@@ -13,13 +14,13 @@ def function():
     sensor_value = f.read()
     if sensor_value == "1":
         print("person detected")
-        # write 1 in file_pip
-        # waite for 30 seconds
-        # test if the content of the file is still 1
-        # if yes  then lunch the buzzer
-        # else do nothing
+        write_value_in_file("./file", "1")
+        time.sleep(30)
+        if read_the_content_of_file("./file") == "1":
+            print("launch buzzer")
+        else:
+            print("your welcome in the secret room")
 
 
 if __name__ == "__main__":
-
     function()

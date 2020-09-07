@@ -21,3 +21,10 @@ def write_value_in_file(path_to_file, value):
     f = open(path_to_file, "w")
     f.write("{}".format(value))
     f.close()
+
+
+def read_the_content_of_file(path_to_file):
+    f = open(path_to_file, "r")
+    content = f.read()
+    f.close()
+    return content
