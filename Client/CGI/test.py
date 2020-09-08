@@ -3,41 +3,37 @@ import cgi
 import cgitb
 import sys
 import subprocess
+import sqlite3
 
 
-def command(cmd, path):
-    temp = subprocess.Popen([cmd, path], stdout=subprocess.PIPE)
-    output = str(temp.communicate())
-    output = output.split("\n")
-    output = output[0].split('\\')
-    res = []
-    i = 0
-    print("<br>")
-    for line in output:
-        print("<br>{}".format(
-            line.replace("(", "").replace("'", "").replace("None", "").replace(",", "").replace(")", "").replace("n",
-                                                                                                                 "")))
+def check_the_user_info(user_id, password):
+    connection = sqlite3.connect("/www/room_management.db")
+    cursor = connection.cursor()
+    for row in cursor.execute("SELECT * FROM USERS"):
+        if (str(row[0]) == user_id) and (str(row[1]) == password):
+            return True
+    return False
 
 
-def list_the_content_of_a_folder():
+def take_user_info():
     print('<h1>type your info:</h1>')
     print('<form method = "post">')
     print('<br> <input type = "text" name = "user_id" placeholder ="user_id"/>')
-    print('<br> <input type = "text" name = "password" placeholder ="password"/>')
+    print('<br> <input type = "password" name = "password" placeholder ="password"/>')
     print(' <input type = "submit" name = "login" value = "login"/>')
 
     if "login" in form:
-        if form["user_id"].value == "anas" and form["password"].value == "123456789":
+        if check_the_user_info(form["user_id"].value, form["password"].value):
             print("<h2>user name is  {} est : </h2>".format(form["user_id"].value))
-            #command("ls", form["chemin"].value)
+        else:
+            print("<p> the user name or the password is wrong </p>")
 
 
 print("Content-type: text/html\n\n")
 print("<body>")
 cgitb.enable()
 form = cgi.FieldStorage()
-#write_in_a_file()
-list_the_content_of_a_folder()
+take_user_info()
 print("</form>")
 print("</body>")
 print("</html>")
