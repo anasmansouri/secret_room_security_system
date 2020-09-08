@@ -17,7 +17,8 @@ def function():
         write_value_in_file("./file", "1")
         time.sleep(30)
         if read_the_content_of_file("./file") == "1":
-            os.popen("../codes_C/launch_buzzer 9000 7000")
+            os.popen("sudo ../codes_C/launch_buzzer 9000 7000")
+            print("launch buzzer")
         else:
             print("your welcome in the secret room")
 
