@@ -4,7 +4,7 @@ $dbh = new PDO("sqlite:/home/pi/project_mansouri/secret_room_security_system/Cli
 //Requetes de selection
 $sql = "SELECT * FROM history";
 // affichage des resultats
-echo "<h>history : </h>"
+echo "<h>history : </h><br>";
 foreach ($dbh->query($sql) as $row)
 {
     echo $row[time]." | ".$row[user_id]."<br>";
