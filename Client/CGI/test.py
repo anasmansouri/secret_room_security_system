@@ -30,7 +30,7 @@ def take_user_info():
     if "login" in form:
         if check_the_user_info(form["user_id"].value, form["password"].value):
             write_value_in_file("/home/pi/project_mansouri/secret_room_security_system/Serveur/codes_Python/file", "0")
-         else:
+        else:
             print("<p> the user name or the password is wrong </p>")
 
 
