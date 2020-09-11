@@ -10,7 +10,7 @@ from mybiblio import write_value_in_file
 
 
 def check_the_user_info(user_id, password):
-    connection = sqlite3.connect("/www/room_management.db")
+    connection = sqlite3.connect("/home/pi/project_mansouri/secret_room_security_system/Client/BD/room_management.db")
     cursor = connection.cursor()
     for row in cursor.execute("SELECT * FROM USERS"):
         if (str(row[0]) == user_id) and (str(row[1]) == password):
