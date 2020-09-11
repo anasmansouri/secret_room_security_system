@@ -14,7 +14,7 @@ def check_the_user_info(user_id, password):
     cursor = connection.cursor()
     for row in cursor.execute("SELECT * FROM USERS"):
         if (str(row[0]) == user_id) and (str(row[1]) == password):
-            cursor.execute("INSERT INTO HISTORY VALUES('{}',datetime('now'))".format(row[0]))
+            cursor.execute("INSERT INTO HISTORY VALUES(datetime('now'),'{}')".format(row[0]))
             connection.commit()
             return True
     return False
