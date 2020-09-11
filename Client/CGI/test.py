@@ -21,17 +21,15 @@ def check_the_user_info(user_id, password):
 
 
 def take_user_info():
-    print('<h1>type your info:</h1>')
-    print('<form method = "post">')
-    print('<br> <input type = "text" name = "user_id" placeholder ="user_id"/>')
-    print('<br> <input type = "password" name = "password" placeholder ="password"/>')
-    print(' <input type = "submit" name = "login" value = "login"/>')
-
-    if "login" in form:
-        if check_the_user_info(form["user_id"].value, form["password"].value):
-            write_value_in_file("/home/pi/project_mansouri/secret_room_security_system/Serveur/codes_Python/file", "0")
-        else:
-            print("<p> the user name or the password is wrong </p>")
+    if ("login" in form) and (check_the_user_info(form["user_id"].value, form["password"].value)):
+        write_value_in_file("/home/pi/project_mansouri/secret_room_security_system/Serveur/codes_Python/file", "0")
+        print("<h> your welcome to the secret room</h>")
+    else:
+        print('<h1>type your info:</h1>')
+        print('<form method = "post">')
+        print('<br> <input type = "text" name = "user_id" placeholder ="user_id"/>')
+        print('<br> <input type = "password" name = "password" placeholder ="password"/>')
+        print(' <input type = "submit" name = "login" value = "login"/>')
 
 
 print("Content-type: text/html\n\n")
