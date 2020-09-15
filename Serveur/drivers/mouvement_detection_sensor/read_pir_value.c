@@ -14,7 +14,7 @@
 int main(){
 
 pir p_sensor ;
-strcpy(p_sensor.file_path,"./pir");
+strcpy(p_sensor.file_path,"../drivers/mouvement_detection_sensor/pir");
 char value =read_value(&p_sensor);
 printf("%c",value);
 }
