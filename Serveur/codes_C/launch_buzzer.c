@@ -1,3 +1,12 @@
+ /*H**********************************************************************
+* FILENAME :        pir.c
+*
+* DESCRIPTION :
+*       this a programme to launch the buzzer
+*
+* AUTHOR :    Mansouri Anas        START DATE :   10 Sep 2020
+*
+*H*/
 #include<stdio.h>
 #include<stdlib.h>
 #include "../drivers/pwm/pwm.h"

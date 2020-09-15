@@ -22,7 +22,7 @@ def check_the_user_info(user_id, password):
 
 def take_user_info():
     if ("login" in form) and (check_the_user_info(form["user_id"].value, form["password"].value)):
-        write_value_in_file("/home/pi/project_mansouri/secret_room_security_system/Serveur/codes_Python/file", "0")
+        arreter_le_declenchement_du_buzzer()
         print("<h> your welcome to the secret room</h>")
     else:
         print('<h1>type your info:</h1>')
@@ -31,6 +31,9 @@ def take_user_info():
         print('<br> <input type = "password" name = "password" placeholder ="password"/>')
         print(' <input type = "submit" name = "login" value = "login"/>')
 
+def arreter_le_declenchement_du_buzzer():
+    write_value_in_file("/home/pi/project_mansouri/secret_room_security_system/Serveur/tunnel/controle_buzzer", "0")
+       
 
 print("Content-type: text/html\n\n")
 print("<body>")

@@ -3,7 +3,7 @@ from random import randint
 
 
 def emulate_detection_of_a_person():
-    path = "/home/anas/secret_room_security_system/Serveur/dev/pir"
+    path = "/home/anas/secret_room_security_system/Serveur/drivers/mouvement_detection_sensor/pir"
     put_the_output_high(path)
     time.sleep(5)
     put_the_output_low(path)

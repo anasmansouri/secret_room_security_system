@@ -1,3 +1,13 @@
+/*H**********************************************************************
+* FILENAME :        pir.c
+*
+* DESCRIPTION :
+*       this a programme to test pwm driver
+*
+* AUTHOR :    Mansouri Anas        START DATE :   10 Sep 2020
+*
+*H*/
+
 #include<stdio.h>
 #include "pwm.h"
 #include<stdlib.h>

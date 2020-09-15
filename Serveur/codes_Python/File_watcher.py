@@ -5,7 +5,7 @@ from application_handler import Handler
 
 class PirSensorWatcher:
     # Set the file on watch
-    watchDirectory = "./file"
+    watchDirectory = "/home/pi/secret_room_security_system/Serveur/drivers/mouvement_detection_sensor/pir"
 
     def __init__(self):
         self.observer = Observer()

@@ -14,10 +14,10 @@ def function():
     sensor_value = f.read()
     if sensor_value == "1":
         print("person detected")
-        write_value_in_file("./file", "1")
+        write_value_in_file("/home/pi/project_mansouri/secret_room_security_system/Serveur/tunnel/controle_buzzer", "1")
         time.sleep(30)
-        if read_the_content_of_file("./file") == "1":
-            os.popen("sudo ../codes_C/launch_buzzer 9000 7000")
+        if read_the_content_of_file("/home/pi/project_mansouri/secret_room_security_system/Serveur/tunnel/controle_buzzer") == "1":
+            os.popen("sudo ../codes_C/launch_buzzer 160000000 70000000")
             print("launch buzzer")
         else:
             print("your welcome in the secret room")
