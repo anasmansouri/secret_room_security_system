@@ -1,4 +1,5 @@
 # secret_room_security_system
+
 ## 1st step:
 il faut creer un environnement de travail pour python
 ```bash	
@@ -21,3 +22,6 @@ pour emulerémuler la détection d’une personne avec le capteur de presence
 	$ cd ./secret_room_seurity_system/Serveur/emulators
 	$ python something_is_detected_by_the_pir.py
 ```
+
+pour plus d info voici le lien du projet sur gitub 
+https://github.com/anasmansouri/secret_room_security_system.git
