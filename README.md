@@ -23,5 +23,5 @@ pour emulerémuler la détection d’une personne avec le capteur de presence
 	$ python something_is_detected_by_the_pir.py
 ```
 
-pour plus d info voici le lien du projet sur gitub 
+pour plus d info voici le lien du projet sur github 
 https://github.com/anasmansouri/secret_room_security_system.git
