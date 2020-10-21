@@ -17,7 +17,7 @@ pour lancer le système de surveillance
 	$ python programme_principal.py
 ```
 
-pour emulerémuler la détection d’une personne avec le capteur de presence 
+pour émuler la détection d’une personne avec le capteur de presence 
 ```bash	
 	$ cd ./secret_room_seurity_system/Serveur/emulators
 	$ python something_is_detected_by_the_pir.py
